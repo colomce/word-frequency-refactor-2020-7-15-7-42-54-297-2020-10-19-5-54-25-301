@@ -33,7 +33,7 @@ public class WordFrequencyGame {
     }
 
     private void sortWordInfoByWordCount(List<WordInfo> wordInfoList) {
-        wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
+        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
     }
 
     private String getWordInfoListLines(List<WordInfo> wordInfoList) {
