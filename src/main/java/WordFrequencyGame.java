@@ -12,7 +12,7 @@ public class WordFrequencyGame {
             return sentence + " 1";
         } else {
             try {
-                List<WordInfo> wordInfoList = getDistinctWordInfos(sentence);
+                List<WordInfo> wordInfoList = computeWordFrequency(sentence);
                 sortWordInfoByWordCount(wordInfoList);
                 return getWordInfoListLines(wordInfoList);
             } catch (Exception e) {
@@ -21,7 +21,7 @@ public class WordFrequencyGame {
         }
     }
 
-    private List<WordInfo> getDistinctWordInfos(String sentence) {
+    private List<WordInfo> computeWordFrequency(String sentence) {
         String[] words = sentence.split("\\s+");
 
         List<WordInfo> wordInfoList = new ArrayList<>();
