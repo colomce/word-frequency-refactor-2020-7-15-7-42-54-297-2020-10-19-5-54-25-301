@@ -1,8 +1,8 @@
-class WordInfo {
+class WordFrequency {
     private String word;
     private int wordCount;
 
-    WordInfo(String word, int wordCount) {
+    WordFrequency(String word, int wordCount) {
         this.word = word;
         this.wordCount = wordCount;
     }
