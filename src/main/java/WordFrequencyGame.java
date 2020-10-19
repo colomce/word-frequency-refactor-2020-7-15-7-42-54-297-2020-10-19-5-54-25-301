@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
@@ -25,41 +26,18 @@ public class WordFrequencyGame {
     }
 
     private List<WordInfo> computeWordFrequency(String sentence) {
-        String[] words = sentence.split(WHITE_SPACE);
-
-        List<WordInfo> wordInfoList = new ArrayList<>();
-        for (String word : words) {
-            WordInfo wordInfo = new WordInfo(word, 1);
-            wordInfoList.add(wordInfo);
+        List<String> words = Arrays.asList(sentence.split(WHITE_SPACE));
+        List<WordInfo> wordInfos = new ArrayList<>();
+        for (String word : new HashSet<>(words)) {
+            int frequency = Collections.frequency(words, word);
+            WordInfo wordInfo = new WordInfo(word, frequency);
+            wordInfos.add(wordInfo);
         }
-
-        Map<String, List<WordInfo>> wordInfoMap = getListMap(wordInfoList);
-
-        List<WordInfo> list = new ArrayList<>();
-        for (Map.Entry<String, List<WordInfo>> entry : wordInfoMap.entrySet()) {
-            WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
-            list.add(wordInfo);
-        }
-        wordInfoList = list;
-        return wordInfoList;
+        return wordInfos;
     }
 
     private void sortWordInfoByWordCount(List<WordInfo> wordInfoList) {
         wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
-    }
-
-    private Map<String, List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
-        Map<String, List<WordInfo>> map = new HashMap<>();
-        for (WordInfo wordInfo : wordInfoList) {
-            if (!map.containsKey(wordInfo.getWord())) {
-                ArrayList arr = new ArrayList<>();
-                arr.add(wordInfo);
-                map.put(wordInfo.getWord(), arr);
-            } else {
-                map.get(wordInfo.getWord()).add(wordInfo);
-            }
-        }
-        return map;
     }
 
     private String getWordInfoListLines(List<WordInfo> wordInfoList) {
