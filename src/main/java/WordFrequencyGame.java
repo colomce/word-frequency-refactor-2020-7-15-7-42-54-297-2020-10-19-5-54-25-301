@@ -10,9 +10,7 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 public class WordFrequencyGame {
-
-    private static final String WHITE_SPACE = "\\s+";
-
+    
     public String getResult(String sentence) {
         try {
             List<WordInfo> wordInfoList = computeWordFrequency(sentence);
@@ -24,7 +22,7 @@ public class WordFrequencyGame {
     }
 
     private List<WordInfo> computeWordFrequency(String sentence) {
-        List<String> words = asList(sentence.split(WHITE_SPACE));
+        List<String> words = asList(sentence.split("\\s+"));
         HashSet<String> distinctWords = new HashSet<>(words);
 
         return distinctWords.stream()
