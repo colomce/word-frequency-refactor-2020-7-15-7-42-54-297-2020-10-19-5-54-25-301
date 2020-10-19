@@ -1,11 +1,11 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static java.lang.String.format;
+import static java.util.Arrays.asList;
 
 public class WordFrequencyGame {
 
@@ -22,7 +22,7 @@ public class WordFrequencyGame {
     }
 
     private List<WordInfo> computeWordFrequency(String sentence) {
-        List<String> words = Arrays.asList(sentence.split(WHITE_SPACE));
+        List<String> words = asList(sentence.split(WHITE_SPACE));
         List<WordInfo> wordInfos = new ArrayList<>();
         for (String word : new HashSet<>(words)) {
             int frequency = Collections.frequency(words, word);
