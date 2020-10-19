@@ -7,8 +7,11 @@ import java.util.stream.Collectors;
 import static java.lang.String.format;
 
 public class WordFrequencyGame {
+
+    private static final String WHITE_SPACE = "\\s+";
+
     public String getResult(String sentence) {
-        if (sentence.split("\\s+").length == 1) {
+        if (sentence.split(WHITE_SPACE).length == 1) {
             return sentence + " 1";
         } else {
             try {
@@ -22,7 +25,7 @@ public class WordFrequencyGame {
     }
 
     private List<WordInfo> computeWordFrequency(String sentence) {
-        String[] words = sentence.split("\\s+");
+        String[] words = sentence.split(WHITE_SPACE);
 
         List<WordInfo> wordInfoList = new ArrayList<>();
         for (String word : words) {
