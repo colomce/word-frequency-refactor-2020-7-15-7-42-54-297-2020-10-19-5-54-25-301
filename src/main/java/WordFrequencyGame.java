@@ -6,12 +6,9 @@ import java.util.StringJoiner;
 
 public class WordFrequencyGame {
     public String getResult(String sentence) {
-
-
         if (sentence.split("\\s+").length == 1) {
             return sentence + " 1";
         } else {
-
             try {
 
                 String[] words = sentence.split("\\s+");
@@ -40,13 +37,10 @@ public class WordFrequencyGame {
                 }
                 return joiner.toString();
             } catch (Exception e) {
-
-
                 return "Calculate Error";
             }
         }
     }
-
 
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
         Map<String, List<WordInfo>> map = new HashMap<>();
@@ -59,10 +53,6 @@ public class WordFrequencyGame {
                 map.get(wordInfo.getWord()).add(wordInfo);
             }
         }
-
-
         return map;
     }
-
-
 }
