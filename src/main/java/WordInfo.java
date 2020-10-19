@@ -1,8 +1,8 @@
-class Input {
+class WordInfo {
     private String word;
     private int count;
 
-    Input(String word, int count) {
+    WordInfo(String word, int count) {
         this.word = word;
         this.count = count;
     }
