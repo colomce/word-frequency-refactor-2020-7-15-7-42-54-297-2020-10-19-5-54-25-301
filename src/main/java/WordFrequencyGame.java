@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +24,7 @@ public class WordFrequencyGame {
         List<String> words = asList(sentence.split(WHITE_SPACE));
         HashSet<String> distinctWords = new HashSet<>(words);
 
-        return  distinctWords.stream()
+        return distinctWords.stream()
                 .map(word -> new WordInfo(word, frequency(words, word)))
                 .collect(Collectors.toList());
     }
