@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 class WordFrequencyGameTest {
 
     @Test
-    void should_get_the_1_when_input_the() throws Exception {
+    void should_get_the_1_when_input_the() {
         //Given
         String inputStr = "the";
         String expectResult = "the 1";
@@ -13,7 +13,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_process_two_words() throws Exception {
+    void should_process_two_words() {
         //Given
         String inputStr = "the is";
         String expectResult = "the 1\nis 1";
@@ -21,7 +21,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_process_two_words_with_special_spaces() throws Exception {
+    void should_process_two_words_with_special_spaces() {
         //Given
         String inputStr = "the      is";
         String expectResult = "the 1\nis 1";
@@ -29,7 +29,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_process_two_words_with_special_enter() throws Exception {
+    void should_process_two_words_with_special_enter() {
         //Given
         String inputStr = "the   \n   is";
         String expectResult = "the 1\nis 1";
@@ -37,7 +37,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_pracess_two_same_words_with_sorted() throws Exception {
+    void should_pracess_two_same_words_with_sorted() {
         //Given
         String inputStr = "the the is";
         String expectResult = "the 2\nis 1";
@@ -45,7 +45,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_process_sorted_with_count_descending() throws Exception {
+    void should_process_sorted_with_count_descending() {
         //Given
         String inputStr = "the is is";
         String expectResult = "is 2\nthe 1";
@@ -53,7 +53,7 @@ class WordFrequencyGameTest {
     }
 
     @Test
-    void should_return_Calculate_Error_when_get_result_given_empty_string() throws Exception {
+    void should_return_Calculate_Error_when_get_result_given_empty_string() {
         //Given
         String inputStr = "";
         String expectResult = "Calculate Error";
