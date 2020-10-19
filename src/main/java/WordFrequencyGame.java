@@ -10,14 +10,21 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 public class WordFrequencyGame {
-    
+
     public String getResult(String sentence) {
         try {
+            validateInput(sentence);
             List<WordFrequency> wordFrequencyList = computeWordFrequency(sentence);
             sortWordInfoByWordCount(wordFrequencyList);
             return getWordInfoListLines(wordFrequencyList);
         } catch (Exception e) {
             return "Calculate Error";
+        }
+    }
+
+    private void validateInput(String sentence) {
+        if ("".equals(sentence)) {
+            throw new InvalidInputException();
         }
     }
 
