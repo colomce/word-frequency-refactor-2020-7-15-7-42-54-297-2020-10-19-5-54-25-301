@@ -4,6 +4,8 @@ import java.util.List;
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Collections.frequency;
+import static java.util.Collections.reverseOrder;
+import static java.util.Comparator.comparingInt;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
@@ -31,7 +33,7 @@ public class WordFrequencyGame {
     }
 
     private void sortWordInfoByWordCount(List<WordInfo> wordInfoList) {
-        wordInfoList.sort((firstWord, secondWord) -> secondWord.getWordCount() - firstWord.getWordCount());
+        wordInfoList.sort(reverseOrder(comparingInt(WordInfo::getWordCount)));
     }
 
     private String getWordInfoListLines(List<WordInfo> wordInfoList) {
