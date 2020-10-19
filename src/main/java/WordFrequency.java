@@ -1,3 +1,5 @@
+import static java.lang.String.format;
+
 class WordFrequency {
     private String word;
     private int wordCount;
@@ -13,5 +15,9 @@ class WordFrequency {
 
     int getWordCount() {
         return this.wordCount;
+    }
+
+    String getWordFrequencyLine(){
+        return format("%s %d", word, wordCount);
     }
 }

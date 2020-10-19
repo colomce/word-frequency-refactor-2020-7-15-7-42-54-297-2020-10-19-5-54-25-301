@@ -43,7 +43,7 @@ public class WordFrequencyGame {
 
     private String getWordInfoListLines(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(wordFrequency -> format("%s %d", wordFrequency.getWord(), wordFrequency.getWordCount()))
+                .map(WordFrequency::getWordFrequencyLine)
                 .collect(joining("\n"));
     }
 }
