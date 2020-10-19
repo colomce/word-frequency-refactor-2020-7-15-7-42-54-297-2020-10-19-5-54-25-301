@@ -11,22 +11,7 @@ public class WordFrequencyGame {
         } else {
             try {
 
-                String[] words = sentence.split("\\s+");
-
-                List<WordInfo> wordInfoList = new ArrayList<>();
-                for (String word : words) {
-                    WordInfo wordInfo = new WordInfo(word, 1);
-                    wordInfoList.add(wordInfo);
-                }
-
-                Map<String, List<WordInfo>> wordInfoMap = getListMap(wordInfoList);
-
-                List<WordInfo> list = new ArrayList<>();
-                for (Map.Entry<String, List<WordInfo>> entry : wordInfoMap.entrySet()) {
-                    WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
-                    list.add(wordInfo);
-                }
-                wordInfoList = list;
+                List<WordInfo> wordInfoList = getDistinctWordInfos(sentence);
 
                 wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
@@ -40,6 +25,26 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
+    }
+
+    private List<WordInfo> getDistinctWordInfos(String sentence) {
+        String[] words = sentence.split("\\s+");
+
+        List<WordInfo> wordInfoList = new ArrayList<>();
+        for (String word : words) {
+            WordInfo wordInfo = new WordInfo(word, 1);
+            wordInfoList.add(wordInfo);
+        }
+
+        Map<String, List<WordInfo>> wordInfoMap = getListMap(wordInfoList);
+
+        List<WordInfo> list = new ArrayList<>();
+        for (Map.Entry<String, List<WordInfo>> entry : wordInfoMap.entrySet()) {
+            WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
+            list.add(wordInfo);
+        }
+        wordInfoList = list;
+        return wordInfoList;
     }
 
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
