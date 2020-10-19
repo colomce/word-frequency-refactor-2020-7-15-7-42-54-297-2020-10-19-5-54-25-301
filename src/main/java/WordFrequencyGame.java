@@ -1,10 +1,11 @@
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static java.util.Collections.frequency;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
 public class WordFrequencyGame {
 
@@ -26,7 +27,7 @@ public class WordFrequencyGame {
 
         return distinctWords.stream()
                 .map(word -> new WordInfo(word, frequency(words, word)))
-                .collect(Collectors.toList());
+                .collect(toList());
     }
 
     private void sortWordInfoByWordCount(List<WordInfo> wordInfoList) {
@@ -36,6 +37,6 @@ public class WordFrequencyGame {
     private String getWordInfoListLines(List<WordInfo> wordInfoList) {
         return wordInfoList.stream()
                 .map(wordInfo -> format("%s %d", wordInfo.getWord(), wordInfo.getWordCount()))
-                .collect(Collectors.joining("\n"));
+                .collect(joining("\n"));
     }
 }
