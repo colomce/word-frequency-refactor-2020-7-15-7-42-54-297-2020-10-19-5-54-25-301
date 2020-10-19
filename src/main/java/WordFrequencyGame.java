@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringJoiner;
+import java.util.stream.Collectors;
+
+import static java.lang.String.format;
 
 public class WordFrequencyGame {
     public String getResult(String sentence) {
@@ -17,15 +19,6 @@ public class WordFrequencyGame {
                 return "Calculate Error";
             }
         }
-    }
-
-    private String getWordInfoListLines(List<WordInfo> wordInfoList) {
-        StringJoiner joiner = new StringJoiner("\n");
-        for (WordInfo w : wordInfoList) {
-            String s = w.getWord() + " " + w.getWordCount();
-            joiner.add(s);
-        }
-        return joiner.toString();
     }
 
     private List<WordInfo> getDistinctWordInfos(String sentence) {
@@ -64,5 +57,11 @@ public class WordFrequencyGame {
             }
         }
         return map;
+    }
+
+    private String getWordInfoListLines(List<WordInfo> wordInfoList) {
+        return wordInfoList.stream()
+                .map(wordInfo -> format("%s %d", wordInfo.getWord(), wordInfo.getWordCount()))
+                .collect(Collectors.joining("\n"));
     }
 }
