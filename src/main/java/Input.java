@@ -1,20 +1,17 @@
-public class Input {
+class Input {
     private String word;
     private int count;
 
-    public Input(String word, int count) {
+    Input(String word, int count) {
         this.word = word;
         this.count = count;
     }
 
-
-    public String getWord() {
+    String getWord() {
         return this.word;
     }
 
-    public int getWordCount() {
+    int getWordCount() {
         return this.count;
     }
-
-
 }
